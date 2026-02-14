@@ -3,79 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArisAdvisors | Data Engineering & Strategy</title>
+    <title>ArisAdvisors | Data Engineering & Digital Solutions</title>
     <style>
         :root {
-            --primary: #0061ff; /* Electric Blue (Moderno tipo Google/Dropbox) */
+            --primary: #0061ff; /* Electric Blue */
             --dark: #1e293b;
             --light-bg: #ffffff;
             --text-main: #334155;
+            --card-border: #e2e8f0;
         }
-        body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; color: var(--text-main); background-color: var(--light-bg); line-height: 1.6; }
+        body { 
+            font-family: 'Inter', -apple-system, system-ui, sans-serif; 
+            margin: 0; 
+            color: var(--text-main); 
+            background-color: var(--light-bg); 
+            line-height: 1.6; 
+            transition: all 0.3s ease;
+        }
         
-        /* Header Limpio */
-        header { padding: 60px 20px; text-align: center; background: radial-gradient(circle at top, #f8faff 0%, #ffffff 100%); }
-        .logo-text { font-size: 3rem; font-weight: 800; color: var(--dark); letter-spacing: -2px; margin: 0; }
+        /* Language Switcher */
+        .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 100; }
+        .lang-btn { 
+            background: #f1f5f9; 
+            border: 1px solid var(--card-border); 
+            padding: 8px 16px; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            color: var(--dark); 
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+        .lang-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+        header { padding: 100px 20px; text-align: center; background: radial-gradient(circle at top, #f8faff 0%, #ffffff 100%); }
+        .logo-text { font-size: 3.5rem; font-weight: 800; color: var(--dark); letter-spacing: -2px; margin: 0; }
         .logo-text span { color: var(--primary); }
-        .slogan { font-size: 1.25rem; color: #64748b; max-width: 600px; margin: 20px auto; font-weight: 400; }
+        .slogan { font-size: 1.25rem; color: #64748b; max-width: 750px; margin: 25px auto; font-weight: 400; }
 
-        /* Contenedor */
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        
-        /* Cards Modernas */
-        .card { padding: 40px; border-radius: 12px; border: 1px solid #e2e8f0; transition: all 0.3s ease; background: white; }
-        .card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,97,255,0.1); }
-        .card h3 { color: var(--dark); margin-top: 0; font-size: 1.5rem; }
-        .card p { font-size: 1rem; color: #64748b; }
+        /* Modern Cards */
+        .card { 
+            padding: 45px; 
+            border-radius: 16px; 
+            border: 1px solid var(--card-border); 
+            background: white; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card:hover { 
+            border-color: var(--primary); 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 40px rgba(0,97,255,0.08); 
+        }
+        .card h3 { color: var(--dark); margin-top: 0; font-size: 1.6rem; margin-bottom: 15px; }
+        .badge { 
+            display: inline-block; 
+            padding: 5px 14px; 
+            background: #eff6ff; 
+            color: var(--primary); 
+            border-radius: 30px; 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            margin-bottom: 20px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+        }
 
-        .badge { display: inline-block; padding: 4px 12px; background: #e0f2fe; color: var(--primary); border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px; }
-
-        /* Footer y CTA */
-        .cta-section { text-align: center; padding: 80px 20px; }
-        .btn { background: var(--primary); color: white; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: opacity 0.2s; }
-        .btn:hover { opacity: 0.9; }
+        .cta-section { text-align: center; padding: 100px 20px; }
+        .btn { 
+            background: var(--primary); 
+            color: white; 
+            padding: 18px 40px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+            box-shadow: 0 4px 14px rgba(0, 97, 255, 0.3);
+            transition: 0.3s;
+        }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0, 97, 255, 0.4); }
         
-        footer { border-top: 1px solid #e2e8f0; padding: 40px; text-align: center; color: #94a3b8; font-size: 0.9rem; }
+        footer { border-top: 1px solid var(--card-border); padding: 50px; text-align: center; color: #94a3b8; font-size: 0.95rem; }
+
+        /* Multi-language Logic */
+        [lang="es"] { display: none; }
     </style>
 </head>
 <body>
 
+<div class="lang-switch">
+    <button class="lang-btn" onclick="switchLang()">Español / English</button>
+</div>
+
 <header>
     <div class="logo-text">Aris<span>Advisors</span></div>
-    <div class="slogan">Next-generation data infrastructure. We optimize, secure, and scale your most valuable asset.</div>
+    <div class="slogan" lang="en">Next-generation data infrastructure. We optimize, secure, and scale your most valuable assets.</div>
+    <div class="slogan" lang="es">Infraestructura de datos de próxima generación. Optimizamos, protegemos y escalamos sus activos más valiosos.</div>
 </header>
 
 <div class="container">
     <div class="grid">
         <div class="card">
-            <div class="badge">Performance</div>
-            <h3>SQL Engineering</h3>
-            <p>Advanced query optimization and database architectural design for high-concurrency environments.</p>
+            <div class="badge" lang="en">Performance</div>
+            <div class="badge" lang="es">Rendimiento</div>
+            
+            <h3 lang="en">SQL Engineering</h3>
+            <h3 lang="es">Ingeniería SQL</h3>
+            
+            <p lang="en">Advanced query optimization and database architectural design for high-concurrency environments.</p>
+            <p lang="es">Optimización avanzada de consultas y diseño de arquitectura de bases de datos para entornos de alta concurrencia.</p>
         </div>
 
         <div class="card">
-            <div class="badge">Security</div>
-            <h3>Compliance & Auditing</h3>
-            <p>End-to-end data encryption strategy and regulatory compliance oversight (GDPR, HIPAA, SOC2).</p>
+            <div class="badge" lang="en">Security</div>
+            <div class="badge" lang="es">Seguridad</div>
+            
+            <h3 lang="en">Compliance & Auditing</h3>
+            <h3 lang="es">Cumplimiento y Auditoría</h3>
+            
+            <p lang="en">End-to-end data encryption strategy and regulatory compliance oversight (GDPR, HIPAA, SOC2).</p>
+            <p lang="es">Estrategia de cifrado de datos de extremo a extremo y supervisión de cumplimiento normativo internacional.</p>
         </div>
 
         <div class="card">
-            <div class="badge">Scale</div>
-            <h3>Data Strategy</h3>
-            <p>Scaling data pipelines and modernizing legacy systems for the cloud-native era.</p>
+            <div class="badge" lang="en">Solutions</div>
+            <div class="badge" lang="es">Soluciones</div>
+            
+            <h3 lang="en">Digital Infrastructure</h3>
+            <h3 lang="es">Infraestructura Digital</h3>
+            
+            <p lang="en">Professional branding, automated business documentation, and strategic digital presence for growing enterprises.</p>
+            <p lang="es">Identidad corporativa profesional, automatización de documentos comerciales y presencia digital estratégica para empresas.</p>
         </div>
     </div>
 
     <section class="cta-section">
-        <a href="mailto:arisadvisors@proton.me" class="btn">Schedule a Technical Briefing</a>
+        <a href="mailto:arisadvisors@proton.me" class="btn" lang="en">Schedule a Technical Briefing</a>
+        <a href="mailto:arisadvisors@proton.me" class="btn" lang="es">Agendar Sesión Técnica</a>
     </section>
 </div>
 
 <footer>
-    &copy; 2026 ArisAdvisors. Engineered for Reliability.
+    <span lang="en">&copy; 2026 ArisAdvisors. Engineered for Reliability.</span>
+    <span lang="es">&copy; 2026 ArisAdvisors. Ingeniería diseñada para la confiabilidad.</span>
 </footer>
+
+<script>
+    let currentLang = 'en';
+    function switchLang() {
+        const enElems = document.querySelectorAll('[lang="en"]');
+        const esElems = document.querySelectorAll('[lang="es"]');
+        
+        if (currentLang === 'en') {
+            enElems.forEach(el => el.style.display = 'none');
+            esElems.forEach(el => {
+                // For blocks like div/p use block, for span use inline
+                el.style.display = (el.tagName === 'SPAN') ? 'inline' : 'block';
+            });
+            currentLang = 'es';
+        } else {
+            enElems.forEach(el => {
+                el.style.display = (el.tagName === 'SPAN') ? 'inline' : 'block';
+            });
+            esElems.forEach(el => el.style.display = 'none');
+            currentLang = 'en';
+        }
+    }
+</script>
 
 </body>
 </html>
