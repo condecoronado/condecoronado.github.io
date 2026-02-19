@@ -216,15 +216,6 @@
             </div>
         </div>
     </section>
-
-    <footer>
-        <p>CONDE & CORONADO | Excellence in IT Operations</p>
-        <div id="f-text" class="footer-legal">
-            &copy; 2026 CONDE & CORONADO. Todos los derechos reservados.<br>
-            Las guías y recursos ofrecidos son herramientas de referencia basadas en mejores prácticas y deben adaptarse a cada entorno específico por profesionales calificados.
-        </div>
-    </footer>
-
     <script>
         const langData = {
             es: {
@@ -234,8 +225,11 @@
                 c1t: "Guías de Despliegue", c1d: "Manuales técnicos basados en estándares de alta disponibilidad para la apertura de sedes.", c1b: "VER RECURSOS",
                 c2t: "Gestión de Activos", c2d: "Estrategias de licenciamiento y automatización de mantenimiento preventivo y correctivo.", c2b: "CONSULTORÍA",
                 c3t: "Factibilidad TI", c3d: "Evaluación estratégica de infraestructura para la escalabilidad de sus operaciones.", c3b: "DIAGNÓSTICO",
-                cot: "Technical Spanish Coaching", cos: "Español Profesional para Líderes de TI.", cod: "Domine el español naturalizado necesario para dirigir equipos de infraestructura en Latinoamérica con un enfoque bilingüe corporativo.", cob: "RESERVAR SESIÓN",
-                foot: "&copy; 2026 CONDE & CORONADO. Todos los derechos reservados.<br>Las guías y recursos ofrecidos son herramientas de referencia basadas en mejores prácticas y deben adaptarse a cada entorno específico por profesionales calificados."
+                cot: "Coaching de Español Técnico", 
+                cos: "Español Profesional para Líderes de TI.", 
+                cod: "Domine el español naturalizado necesario para dirigir equipos de infraestructura en Latinoamérica con un enfoque bilingüe corporativo.", 
+                cob: "RESERVAR SESIÓN",
+                foot: "<strong>CONDE & CORONADO | Excelencia en Operaciones TI</strong><br><br>&copy; 2026 CONDE & CORONADO. Todos los derechos reservados.<br>Las guías y recursos ofrecidos son herramientas de referencia basadas en mejores prácticas y deben adaptarse a cada entorno específico por profesionales calificados."
             },
             en: {
                 subtitle: "STRATEGY, INFRASTRUCTURE & TECH COACHING",
@@ -244,13 +238,15 @@
                 c1t: "Deployment Guides", c1d: "Technical manuals based on high-availability standards for branch openings.", c1b: "VIEW RESOURCES",
                 c2t: "Asset Management", c2d: "Licensing strategies and automation for preventive and corrective maintenance.", c2b: "CONSULTING",
                 c3t: "IT Feasibility", c3d: "Strategic infrastructure evaluation for the scalability of your operations.", c3b: "DIAGNOSTIC",
-                cot: "Technical Spanish Coaching", cos: "Professional Spanish for IT Leaders.", cod: "Master the naturalized Spanish needed to lead infrastructure teams in Latin America with a corporate bilingual focus.", cob: "BOOK A SESSION",
-                foot: "&copy; 2026 CONDE & CORONADO. All rights reserved.<br>The guides and resources offered are reference tools based on best practices and must be adapted to each specific environment by qualified professionals."
+                cot: "Technical Spanish Coaching", 
+                cos: "Professional Spanish for IT Leaders.", 
+                cod: "Master the naturalized Spanish needed to lead infrastructure teams in Latin America with a corporate bilingual focus.", 
+                cob: "BOOK A SESSION",
+                foot: "<strong>CONDE & CORONADO | Excellence in IT Operations</strong><br><br>&copy; 2026 CONDE & CORONADO. All rights reserved.<br>The guides and resources offered are reference tools based on best practices and must be adapted to each specific environment by qualified professionals."
             }
         };
 
         function changeLang(lang) {
-            // Actualizar textos
             document.getElementById('subtitle').innerText = langData[lang].subtitle;
             document.getElementById('h-title').innerText = langData[lang].hTitle;
             document.getElementById('h-desc').innerText = langData[lang].hDesc;
@@ -269,13 +265,11 @@
             document.getElementById('co-b').innerText = langData[lang].cob;
             document.getElementById('f-text').innerHTML = langData[lang].foot;
 
-            // Estilo de botones
             document.getElementById('btn-es').classList.remove('active');
             document.getElementById('btn-en').classList.remove('active');
             document.getElementById('btn-' + lang).classList.add('active');
         }
 
-        // Iniciar en español por defecto
         window.onload = () => changeLang('es');
     </script>
 </body>
