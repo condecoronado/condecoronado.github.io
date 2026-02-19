@@ -3,104 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conde Coronado Tech Solutions</title>
+    <title>CONDE & CORONADO | IT Operations & Tech Coaching</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #2c3e50; --accent: #2980b9; --bg: #f4f7f6; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: var(--bg); color: #333; }
-        
-        header { background: white; padding: 40px 20px; text-align: center; border-bottom: 3px solid var(--primary); }
-        h1 { margin: 0; letter-spacing: 6px; color: var(--primary); font-size: 2.5em; }
-        .subtitle { font-weight: 300; color: var(--accent); margin-top: 10px; letter-spacing: 2px; }
-        
-        nav { margin: 20px 0; }
-        nav a { text-decoration: none; color: var(--primary); font-weight: bold; margin: 0 15px; transition: 0.3s; }
-        nav a:hover { color: var(--accent); }
+        :root {
+            --primary: #1a2a3a; /* Azul Marino Profundo (Confianza) */
+            --accent: #c5a059;  /* Dorado Mate (Exclusividad) */
+            --bg: #f8f9fa;
+            --text: #333;
+        }
 
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        
-        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--accent); transition: transform 0.3s; }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 6px;
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            font-weight: 300;
+            letter-spacing: 4px;
+            font-size: 0.9em;
+            color: var(--accent);
+            margin-top: 10px;
+        }
+
+        /* Hero Banner */
+        .hero {
+            height: 450px;
+            background: linear-gradient(rgba(26, 42, 58, 0.8), rgba(26, 42, 58, 0.8)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1500'); /* Imagen de Red Global/Infraestructura */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 2em;
+            max-width: 800px;
+            font-weight: 300;
+        }
+
+        /* Main Content Sections */
+        .container {
+            max-width: 1100px;
+            margin: -50px auto 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+
         .card:hover { transform: translateY(-10px); }
-        .card h3 { margin-top: 0; color: var(--primary); }
-        
-        .footer-legal { background: #eee; padding: 40px 20px; text-align: center; margin-top: 60px; font-size: 0.85em; color: #666; }
-        button { background: var(--primary); color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; }
+
+        .card h3 {
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.5em;
+            color: var(--primary);
+            font-weight: 700;
+            display: block;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Technical Spanish Section */
+        .spanish-coach {
+            background: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .coach-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .coach-img {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800'); /* Imagen representativa de Coaching/Profesional */
+            background-size: cover;
+            border-radius: 8px;
+        }
+
+        .coach-text { flex: 1; text-align: left; min-width: 300px; }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .footer-legal {
+            font-size: 0.8em;
+            color: #888;
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
     </style>
 </head>
 <body>
 
-<header>
-    <h1>CONDE & CORONADO</h1>
-    <div class="subtitle">TECH SOLUTIONS</div>
-    <nav>
-        <a href="#home">HOME</a> | <a href="#lab">THE LAB</a>
-    </nav>
-    <button onclick="toggleLang()">ESPAÑOL / ENGLISH</button>
-</header>
+    <header>
+        <h1>CONDE & CORONADO</h1>
+        <div class="subtitle">ESTRATEGIA, INFRAESTRUCTURA & TECH COACHING</div>
+    </header>
 
-<div class="container">
-    <div class="lang-en">
-        <h2 style="text-align:center;">Elite Engineering for Growing Businesses</h2>
-    </div>
-    <div class="lang-es" style="display:none;">
-        <h2 style="text-align:center;">Ingeniería de Élite para Empresas en Crecimiento</h2>
-    </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Transformamos 14 años de experiencia en banca e infraestructura en su ventaja competitiva.</h2>
+        </div>
+    </section>
 
-    <div class="grid">
+    <div class="container">
         <div class="card">
-            <div class="lang-en">
-                <h3>Data Architecture</h3>
-                <p>Robust SQL database design to ensure your business information is secure, organized, and ready for growth.</p>
-            </div>
-            <div class="lang-es" style="display:none;">
-                <h3>Arquitectura de Datos</h3>
-                <p>Diseño robusto de bases de datos SQL para asegurar que la información de su negocio esté segura, organizada y lista para crecer.</p>
-            </div>
+            <h3>Guías de Despliegue Operativo</h3>
+            <p>Manuales técnicos y checklists basados en estándares bancarios para la apertura y gestión de sedes remotas. Evite errores críticos de hardware y conectividad.</p>
+            <span class="price">Desde $19.00</span>
+            <a href="#" class="btn">ADQUIRIR GUÍA</a>
         </div>
 
         <div class="card">
-            <div class="lang-en">
-                <h3>AI & Automation</h3>
-                <p>Smart systems that process invoices and documents automatically, saving you hours of manual work every week.</p>
-            </div>
-            <div class="lang-es" style="display:none;">
-                <h3>IA & Automatización</h3>
-                <p>Sistemas inteligentes que procesan facturas y documentos automáticamente, ahorrándole horas de trabajo manual cada semana.</p>
-            </div>
+            <h3>Gestión de Activos y Parches</h3>
+            <p>Estrategias optimizadas para el control de licenciamiento, despliegue de software de gestión y automatización de tareas de mantenimiento preventivo.</p>
+            <span class="price">Consultar</span>
+            <a href="#" class="btn">SOLICITAR INFO</a>
         </div>
 
         <div class="card">
-            <div class="lang-en">
-                <h3>Digital Solutions</h3>
-                <p>Custom technology infrastructure designed to solve the specific needs of SMEs and individual high-end clients.</p>
-            </div>
-            <div class="lang-es" style="display:none;">
-                <h3>Soluciones Digitales</h3>
-                <p>Infraestructura tecnológica a la medida, diseñada para resolver las necesidades específicas de PYMES y clientes individuales.</p>
-            </div>
+            <h3>Auditoría de Factibilidad TI</h3>
+            <p>Análisis previo de su infraestructura actual para identificar cuellos de botella antes de escalar su operación. Visión estratégica de alto nivel.</p>
+            <span class="price">Pre-análisis Gratis</span>
+            <a href="#contacto" class="btn">INICIAR DIAGNÓSTICO</a>
         </div>
     </div>
-</div>
 
-<footer class="footer-legal">
-    <p><strong>© 2026 Conde Coronado Tech Solutions</strong></p>
-    <div class="lang-en">
-        <p><strong>Confidentiality:</strong> This firm operates under strict non-disclosure protocols. All client data and infrastructure architectures are treated as Highly Confidential.</p>
-    </div>
-    <div class="lang-es" style="display:none;">
-        <p><strong>Confidencialidad:</strong> Esta firma opera bajo protocolos estrictos de confidencialidad. Todos los datos y arquitecturas de infraestructura son tratados como información Altamente Confidencial.</p>
-    </div>
-</footer>
+    <section class="spanish-coach">
+        <div class="coach-grid">
+            <div class="coach-img"></div>
+            <div class="coach-text">
+                <h2 style="font-family: 'Playfair Display', serif; color: var(--primary);">Technical Spanish Coaching</h2>
+                <p><strong>Para líderes de TI y Project Managers extranjeros.</strong></p>
+                <p>Domine el español naturalizado y técnico necesario para dirigir equipos de infraestructura en Latinoamérica. Clases personalizadas con enfoque bilingüe corporativo.</p>
+                <a href="#" class="btn" style="background: var(--accent); color: var(--primary);">RESERVAR SESIÓN EN PREPLY</a>
+            </div>
+        </div>
+    </section>
 
-<script>
-    function toggleLang() {
-        const en = document.querySelectorAll('.lang-en');
-        const es = document.querySelectorAll('.lang-es');
-        en.forEach(el => el.style.display = (el.style.display === 'none' ? 'block' : 'none'));
-        es.forEach(el => el.style.display = (el.style.display === 'none' ? 'block' : 'none'));
-    }
-</script>
+    <section id="contacto" style="padding: 80px 20px; background: #1a2a3a; color: white; text-align: center;">
+        <h2 style="font-weight: 300;">¿Listo para optimizar su operación?</h2>
+        <p>Inicie su transformación digital con la seguridad de la experiencia.</p>
+        <br>
+        <a href="mailto:tu-correo@proton.me" class="btn" style="border: 1px solid var(--accent); background: transparent;">CONTACTAR A INGENIERÍA</a>
+    </section>
+
+    <footer>
+        <p>CONDE & CORONADO | Excellence in IT Operations</p>
+        <div class="footer-legal">
+            &copy; 2026 CONDE & CORONADO. Todos los derechos reservados.<br>
+            Las guías y recursos ofrecidos son herramientas de referencia basadas en mejores prácticas y deben adaptarse a cada entorno específico.
+        </div>
+    </footer>
 
 </body>
 </html>
