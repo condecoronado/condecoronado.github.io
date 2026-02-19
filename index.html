@@ -64,7 +64,7 @@
         }
 
         .hero {
-            height: 450px;
+            height: 400px;
             background: linear-gradient(rgba(26, 42, 58, 0.85), rgba(26, 42, 58, 0.85)), 
                         url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1500');
             background-size: cover;
@@ -78,7 +78,7 @@
         }
 
         .hero-content h2 {
-            font-size: 2.2em;
+            font-size: 2em;
             max-width: 900px;
             font-weight: 400;
         }
@@ -139,9 +139,9 @@
         .coach-img {
             flex: 1;
             min-width: 320px;
-            height: 480px;
-            /* IMAGEN ACTUALIZADA: Ejecutivo moreno con barba, perfil senior */
-            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800');
+            height: 500px;
+            /* Imagen: Latino, barba, camisa polo azul, perfil profesional senior */
+            background: url('https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&q=80&w=800');
             background-size: cover;
             background-position: center;
             border-radius: 4px;
@@ -151,6 +151,18 @@
         .coach-text { flex: 1; text-align: left; min-width: 320px; }
 
         footer { background: var(--primary); color: white; padding: 60px 20px; text-align: center; }
+
+        .footer-legal {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            margin-top: 30px;
+            border-top: 1px solid #2c3e50;
+            padding-top: 20px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
 <body>
@@ -174,19 +186,19 @@
     <div class="container">
         <div class="card">
             <h3>Guías de Despliegue Operativo</h3>
-            <p>Manuales y checklists basados en estándares de alta disponibilidad para apertura de sedes.</p>
+            <p>Manuales técnicos basados en estándares de alta disponibilidad para la apertura de sedes.</p>
             <a href="#" class="btn">VER RECURSOS</a>
         </div>
 
         <div class="card">
             <h3>Gestión de Activos y Control</h3>
-            <p>Estrategias de licenciamiento y automatización de mantenimiento preventivo.</p>
+            <p>Estrategias de licenciamiento y automatización de mantenimiento preventivo y correctivo.</p>
             <a href="#" class="btn">CONSULTORÍA</a>
         </div>
 
         <div class="card">
             <h3>Factibilidad TI</h3>
-            <p>Evaluación estratégica de infraestructura para escalabilidad de operaciones.</p>
+            <p>Evaluación estratégica de infraestructura para la escalabilidad de sus operaciones.</p>
             <a href="#" class="btn">DIAGNÓSTICO</a>
         </div>
     </div>
@@ -197,7 +209,7 @@
             <div class="coach-text">
                 <h2 style="font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2.2em;">Technical Spanish Coaching</h2>
                 <p><strong>Professional Spanish for IT Leaders.</strong></p>
-                <p>Especializado en terminología corporativa y operativa para Managers y Tech Leads extranjeros que dirigen equipos en Latinoamérica.</p>
+                <p>Domine el español naturalizado necesario para dirigir equipos de infraestructura en Latinoamérica con un enfoque bilingüe corporativo.</p>
                 <br>
                 <a href="#" class="btn" style="background: var(--accent); color: var(--primary);">BOOK A SESSION</a>
             </div>
@@ -206,7 +218,10 @@
 
     <footer>
         <p>CONDE & CORONADO | Excellence in IT Operations</p>
-        <p style="font-size: 0.8em; color: #7f8c8d; margin-top: 20px;">&copy; 2026 Todos los derechos reservados.</p>
+        <div class="footer-legal">
+            &copy; 2026 CONDE & CORONADO. Todos los derechos reservados.<br>
+            Las guías y recursos ofrecidos son herramientas de referencia basadas en mejores prácticas y deben adaptarse a cada entorno específico por profesionales calificados.
+        </div>
     </footer>
 
 </body>
