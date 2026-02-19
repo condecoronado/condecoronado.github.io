@@ -229,7 +229,6 @@
             cos: "Español Profesional para Líderes de TI.", 
             cod: "Domine el español naturalizado necesario para dirigir equipos de infraestructura en Latinoamérica con un enfoque bilingüe corporativo.", 
             cob: "RESERVAR SESIÓN",
-            // FOOTER COMPLETO EN ESPAÑOL
             foot: "<strong>CONDE & CORONADO | Excelencia en Operaciones TI</strong><br><br>&copy; 2026 CONDE & CORONADO. Todos los derechos reservados.<br>Las guías y recursos ofrecidos son herramientas de referencia basadas en mejores prácticas y deben adaptarse a cada entorno específico por profesionales calificados."
         },
         en: {
@@ -243,7 +242,6 @@
             cos: "Professional Spanish for IT Leaders.", 
             cod: "Master the naturalized Spanish needed to lead infrastructure teams in Latin America with a corporate bilingual focus.", 
             cob: "BOOK A SESSION",
-            // FOOTER COMPLETO EN INGLÉS
             foot: "<strong>CONDE & CORONADO | Excellence in IT Operations</strong><br><br>&copy; 2026 CONDE & CORONADO. All rights reserved.<br>The guides and resources offered are reference tools based on best practices and must be adapted to each specific environment by qualified professionals."
         }
     };
@@ -267,16 +265,14 @@
         document.getElementById('co-d').innerText = langData[lang].cod;
         document.getElementById('co-b').innerText = langData[lang].cob;
         
-        // Aquí es donde sucede la magia del footer bilingüe
         document.getElementById('f-text').innerHTML = langData[lang].foot;
 
-        // Estética de los botones de idioma
+ 
         document.getElementById('btn-es').classList.remove('active');
         document.getElementById('btn-en').classList.remove('active');
         document.getElementById('btn-' + lang).classList.add('active');
     }
 
-    // Ejecutar al cargar la página
     window.onload = () => changeLang('es');
 </script>
 </body>
