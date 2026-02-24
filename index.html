@@ -8,26 +8,33 @@
     <style>
         :root { --primary: #1a2a3a; --accent: #c5a059; --bg: #f8f9fa; --text: #333; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        
         .lang-bar { background: #0d161f; padding: 12px 5%; text-align: right; font-size: 0.8em; letter-spacing: 2px; }
         .lang-btn { color: white; cursor: pointer; margin-left: 15px; font-weight: 700; transition: 0.3s; border: none; background: none; font-family: 'Montserrat', sans-serif; }
         .lang-btn:hover { color: var(--accent); }
+
         header { background: var(--primary); color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid var(--accent); }
-        header h1 { font-family: 'Playfair Display', serif; letter-spacing: 6px; margin: 0; font-size: 2.5em; }
+        header h1 { font-family: 'Playfair Display', serif; letter-spacing: 6px; margin: 0; font-size: 2.2em; }
         #subtitle { font-weight: 300; letter-spacing: 4px; font-size: 0.9em; color: var(--accent); margin-top: 10px; text-transform: uppercase; }
-        .hero { padding: 80px 20px; background: linear-gradient(rgba(26, 42, 58, 0.85), rgba(26, 42, 58, 0.85)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1500'); background-size: cover; background-position: center; color: white; text-align: center; }
-        .hero-content { max-width: 900px; margin: 0 auto; }
-        .container { max-width: 1100px; margin: -60px auto 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 20px; }
-        .card { background: white; padding: 40px; border-radius: 4px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-top: 5px solid var(--accent); display: flex; flex-direction: column; }
-        .card h3 { color: var(--primary); text-transform: uppercase; font-size: 1.1em; margin-bottom: 15px; min-height: 45px; display: flex; align-items: center; border-bottom: 1px solid #eee; }
-        .card p { flex-grow: 1; margin-bottom: 20px; }
-        .btn { display: inline-block; background: var(--primary); color: white; padding: 12px 25px; text-decoration: none; font-size: 0.85em; font-weight: bold; border-radius: 2px; transition: 0.3s; border: none; cursor: pointer; text-align: center; text-transform: uppercase; }
+
+        .hero { padding: 60px 20px; background: linear-gradient(rgba(26, 42, 58, 0.9), rgba(26, 42, 58, 0.9)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1500'); background-size: cover; background-position: center; color: white; text-align: center; }
+        
+        /* CONTENEDOR DE LA MATRIZ */
+        .matrix-container { max-width: 1100px; margin: -50px auto 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; padding: 0 20px; }
+        
+        .matrix-card { background: white; padding: 30px; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--accent); }
+        .matrix-card h2 { color: var(--primary); font-size: 1.2em; text-transform: uppercase; border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 20px; text-align: center; }
+        
+        .service-item { margin-bottom: 20px; }
+        .service-item strong { display: block; color: var(--primary); font-size: 1em; }
+        .service-item span { font-size: 0.9em; color: #666; display: block; margin-top: 4px; }
+
+        .cta-section { text-align: center; padding: 40px 20px; }
+        .btn { display: inline-block; background: var(--primary); color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 2px; transition: 0.3s; cursor: pointer; border: none; text-transform: uppercase; margin: 10px; }
         .btn:hover { background: var(--accent); color: var(--primary); }
-        .spanish-coach { background: white; padding: 80px 20px; border-top: 1px solid #eee; }
-        .coach-grid { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
-        .coach-img { flex: 1; min-width: 320px; height: 400px; background: url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800'); background-size: cover; background-position: top; border-radius: 4px; box-shadow: 15px 15px 0px var(--accent); }
-        .coach-text { flex: 1; text-align: left; min-width: 320px; }
-        footer { background: var(--primary); color: white; padding: 60px 20px; text-align: center; }
-        .footer-legal { font-size: 0.85em; color: #bdc3c7; margin: 0 auto; line-height: 1.8; max-width: 900px; }
+
+        footer { background: var(--primary); color: white; padding: 60px 20px; text-align: center; border-top: 4px solid var(--accent); }
+        .footer-legal { font-size: 0.85em; color: #bdc3c7; line-height: 1.8; max-width: 900px; margin: 0 auto; }
     </style>
 </head>
 <body>
@@ -45,40 +52,48 @@
     <section class="hero">
         <div class="hero-content">
             <h2 id="h-title">La arquitectura de la confianza, el lenguaje de la precisión.</h2>
-            <p id="h-desc" style="font-weight:300; color:#bdc3c7; font-size: 1.2em;">Aterrizamos la alta tecnología a la realidad de su operación. Entendemos que la comunicación técnica es un factor de impacto crítico para el éxito global.</p>
+            <p id="h-desc" style="max-width:800px; margin: 20px auto; color:#bdc3c7;">Aterrizamos la alta tecnología a la realidad de su operación. Entendemos que la comunicación técnica en idioma español es un factor de impacto crítico para el éxito global.</p>
         </div>
     </section>
 
-    <div class="container">
-        <div class="card">
-            <h3 id="c1-t">Guías de Infraestructura</h3>
-            <p id="c1-d">El "paso a paso" técnico para aperturas de negocios y despliegue de nuevas sedes sin errores.</p>
-            <button class="btn" id="c1-b">ADQUIRIR RECURSOS</button>
+    <div class="matrix-container">
+        <div class="matrix-card">
+            <h2 id="m1-t">Infraestructura & Recursos TI</h2>
+            <div class="service-item">
+                <strong id="s1-t">Guías para apertura de negocios</strong>
+                <span id="s1-d">El "paso a paso" técnico para iniciar su operación sin errores desde el primer día.</span>
+            </div>
+            <div class="service-item">
+                <strong id="s2-t">Documentación de soporte y redes</strong>
+                <span id="s2-d">Manuales de procedimientos y documentación lista para ser ejecutada por su equipo.</span>
+            </div>
+            <div class="service-item">
+                <strong id="s3-t">Optimización de activos</strong>
+                <span id="s3-d">Estrategias para maximizar el rendimiento y la vida útil de su inversión tecnológica actual.</span>
+            </div>
         </div>
-        <div class="card">
-            <h3 id="c2-t">Optimización de Activos</h3>
-            <p id="c2-d">Maximice el rendimiento y la vida útil de su inversión tecnológica actual mediante gestión estratégica.</p>
-            <button class="btn" id="c2-b">SOLICITAR CONSULTORÍA</button>
-        </div>
-        <div class="card">
-            <h3 id="c3-t">Diagnóstico TI</h3>
-            <p id="c3-d">Evaluación de factibilidad y escalabilidad para asegurar que su tecnología crezca con su negocio.</p>
-            <button class="btn" id="c3-b">INICIAR DIAGNÓSTICO</button>
+
+        <div class="matrix-card">
+            <h2 id="m2-t">Español Técnico para TI</h2>
+            <div class="service-item">
+                <strong id="s4-t">Mejora tu español para TI</strong>
+                <span id="s4-d">Resultados operativos inmediatos, enfocados en la ejecución y no en la gramática.</span>
+            </div>
+            <div class="service-item">
+                <strong id="s5-t">Terminología de Infraestructura</strong>
+                <span id="s5-d">Domine el lenguaje real de los servidores, la nube y la conectividad regional.</span>
+            </div>
+            <div class="service-item">
+                <strong id="s6-t">Comunicación fluida</strong>
+                <span id="s6-d">Cierre la brecha de entendimiento entre el liderazgo estratégico y el staff técnico.</span>
+            </div>
         </div>
     </div>
 
-    <section class="spanish-coach">
-        <div class="coach-grid">
-            <div class="coach-img"></div>
-            <div class="coach-text">
-                <h2 id="co-t" style="font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2.2em;">Español Técnico para TI</h2>
-                <p><strong id="co-s">Mejora tu comunicación técnica en español.</strong></p>
-                <p id="co-d">Enfocado en resultados operativos y terminología basada en infraestructura para cerrar la brecha entre líderes y equipos técnicos.</p>
-                <br>
-                <button class="btn" id="co-b" style="background: var(--accent); color: var(--primary);">RESERVAR SESIÓN</button>
-            </div>
-        </div>
-    </section>
+    <div class="cta-section">
+        <button class="btn" id="b1">Adquirir Recursos</button>
+        <button class="btn" id="b2" style="background:var(--accent); color:var(--primary);">Consultoría Inicial</button>
+    </div>
 
     <footer>
         <div id="f-text" class="footer-legal">
@@ -93,21 +108,31 @@
             es: {
                 subtitle: "Información & Tecnología, sin fricciones",
                 hTitle: "La arquitectura de la confianza, el lenguaje de la precisión.",
-                hDesc: "Aterrizamos la alta tecnología a la realidad de su operación. Entendemos que la comunicación técnica es un factor de impacto crítico para el éxito global.",
-                c1t: "Guías de Infraestructura", c1d: "El 'paso a paso' técnico para aperturas de negocios y despliegue de nuevas sedes sin errores.", c1b: "ADQUIRIR RECURSOS",
-                c2t: "Optimización de Activos", c2d: "Maximice el rendimiento y la vida útil de su inversión tecnológica actual mediante gestión estratégica.", c2b: "SOLICITAR CONSULTORÍA",
-                c3t: "Diagnóstico TI", c3d: "Evaluación de factibilidad y escalabilidad para asegurar que su tecnología crezca con su negocio.", c3b: "INICIAR DIAGNÓSTICO",
-                cot: "Español Técnico para TI", cos: "Mejora tu comunicación técnica en español.", cod: "Enfocado en resultados operativos y terminología basada en infraestructura para cerrar la brecha entre líderes y equipos técnicos.", cob: "RESERVAR SESIÓN",
+                hDesc: "Aterrizamos la alta tecnología a la realidad de su operación. Entendemos que la comunicación técnica en idioma español es un factor de impacto crítico para el éxito global.",
+                m1t: "Infraestructura & Recursos TI",
+                s1t: "Guías para apertura de negocios", s1d: "El 'paso a paso' técnico para iniciar su operación sin errores desde el primer día.",
+                s2t: "Documentación de soporte y redes", s2d: "Manuales de procedimientos y documentación lista para ser ejecutada por su equipo.",
+                s3t: "Optimización de activos", s3d: "Estrategias para maximizar el rendimiento y la vida útil de su inversión tecnológica actual.",
+                m2t: "Español Técnico para TI",
+                s4t: "Mejora tu español para TI", s4d: "Resultados operativos inmediatos, enfocados en la ejecución y no en la gramática.",
+                s5t: "Terminología de Infraestructura", s5d: "Domine el lenguaje real de los servidores, la nube y la conectividad regional.",
+                s6t: "Comunicación fluida", s6d: "Cierre la brecha de entendimiento entre el liderazgo estratégico y el staff técnico.",
+                b1: "Adquirir Recursos", b2: "Consultoría Inicial",
                 foot: "<strong>CONDE & CORONADO | Excelencia en Operaciones TI</strong><br><br>&copy; 2026 CONDE & CORONADO. Todos los derechos reservados.<br><br>Las guías y recursos ofrecidos son herramientas de referencia basadas en mejores prácticas y deben adaptarse a cada entorno específico por profesionales calificados."
             },
             en: {
                 subtitle: "Information & Technology, frictionless",
                 hTitle: "The architecture of trust, the language of precision.",
-                hDesc: "We bring high technology down to the reality of your operations. We understand that technical communication is a critical impact factor for global success.",
-                c1t: "Infrastructure Guides", c1d: "The technical 'step-by-step' for business openings and error-free deployment of new sites.", c1b: "ACQUIRE RESOURCES",
-                c2t: "Asset Optimization", c2d: "Maximize the performance and lifespan of your current technology investment through strategic management.", c2b: "REQUEST CONSULTING",
-                c3t: "IT Diagnostic", c3d: "Feasibility and scalability assessment to ensure your technology grows with your business.", c3b: "START DIAGNOSTIC",
-                cot: "Technical Spanish for IT", cos: "Improve your technical communication in Spanish.", cod: "Focused on operational results and infrastructure-based terminology to bridge the gap between leaders and technical staff.", cob: "BOOK A SESSION",
+                hDesc: "We bring high technology down to the reality of your operations. We understand that technical communication in Spanish is a critical impact factor for global success.",
+                m1t: "IT Infrastructure & Resources",
+                s1t: "Business Opening Guides", s1d: "The technical 'step-by-step' to start your operation without errors from day one.",
+                s2t: "Support & Network Documentation", s2d: "Standard Operating Procedures and documentation ready to be executed by your team.",
+                s3t: "Asset Optimization", s3d: "Strategies to maximize the performance and lifespan of your current technology investment.",
+                m2t: "Technical Spanish for IT",
+                s4t: "Improve your IT Spanish", s4d: "Immediate operational results, focused on execution rather than grammar.",
+                s5t: "Infrastructure Terminology", s5d: "Master the real language of servers, cloud, and regional connectivity.",
+                s6t: "Fluent Communication", s6d: "Bridge the understanding gap between strategic leadership and technical staff.",
+                b1: "Acquire Resources", b2: "Initial Consulting",
                 foot: "<strong>CONDE & CORONADO | Excellence in IT Operations</strong><br><br>&copy; 2026 CONDE & CORONADO. All rights reserved.<br><br>The guides and resources offered are reference tools based on best practices and must be adapted to each specific environment by qualified professionals."
             }
         };
@@ -116,9 +141,24 @@
             document.getElementById('subtitle').innerText = langData[lang].subtitle;
             document.getElementById('h-title').innerText = langData[lang].hTitle;
             document.getElementById('h-desc').innerText = langData[lang].hDesc;
-            document.getElementById('c1-t').innerText = langData[lang].c1t;
-            document.getElementById('c1-d').innerText = langData[lang].c1d;
-            document.getElementById('c1-b').innerText = langData[lang].c1b;
-            document.getElementById('c2-t').innerText = langData[lang].c2t;
-            document.getElementById('c2-d').innerText = langData[lang].c2d;
-            document.getElementById('c2-b').innerText = langData[lang].c2
+            document.getElementById('m1-t').innerText = langData[lang].m1t;
+            document.getElementById('s1-t').innerText = langData[lang].s1t;
+            document.getElementById('s1-d').innerText = langData[lang].s1d;
+            document.getElementById('s2-t').innerText = langData[lang].s2t;
+            document.getElementById('s2-d').innerText = langData[lang].s2d;
+            document.getElementById('s3-t').innerText = langData[lang].s3t;
+            document.getElementById('s3-d').innerText = langData[lang].s3d;
+            document.getElementById('m2-t').innerText = langData[lang].m2t;
+            document.getElementById('s4-t').innerText = langData[lang].s4t;
+            document.getElementById('s4-d').innerText = langData[lang].s4d;
+            document.getElementById('s5-t').innerText = langData[lang].s5t;
+            document.getElementById('s5-d').innerText = langData[lang].s5d;
+            document.getElementById('s6-t').innerText = langData[lang].s6t;
+            document.getElementById('s6-d').innerText = langData[lang].s6d;
+            document.getElementById('b1').innerText = langData[lang].b1;
+            document.getElementById('b2').innerText = langData[lang].b2;
+            document.getElementById('f-text').innerHTML = langData[lang].foot;
+        }
+    </script>
+</body>
+</html>
